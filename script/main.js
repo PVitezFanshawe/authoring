@@ -59,7 +59,14 @@
 
       lightboxImg.src = "images/" + currentObject.images[currentIndex];
       lightboxDesc.innerHTML = currentObject.imageDescription[currentIndex];
-    };
+
+      lightboxClose.addEventListener('click', closeLightbox, false);
+    }
+    function closeLightbox(){
+      //debugger;
+      let lightbox = document.querySelector('.lightbox');
+      lightbox.style.display = 'none';
+    }
     // Init app
     changeElements.call(document.querySelector('#spring')); // Call with param
 })();
