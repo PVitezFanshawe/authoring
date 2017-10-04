@@ -18,6 +18,11 @@
             newSubImg.classList.add('thumb');
             // Add an images sources
             newSubImg.src = "images/" + objectIndex.images[index];
+
+            //add an index number to the thumbnail for array reference
+            newSubImg.dataset.index = index;
+
+            newSubImg.addEventListener('click',function(){ popLightbox(index, objectIndex); }, false);
             // Append it to the container
             subImages.appendChild(newSubImg);
         });
@@ -40,16 +45,21 @@
     });
 
 
-    function.forEach(function(element, index){
-
+    function popLightbox(currentIndex, currentObject){
+      //debugger
       window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
 
       let lightbox = document.querySelector('.lightbox');
       lightbox.style.display = 'block';
 
+      let lightboxImg = lightbox.querySelector('img');
+      let lightboxClose = lightbox.querySelector('.close-lightbox');
+      let lightboxDesc = lightbox.querySelector('p');
 
-    });
+      lightboxImg.src = "images/" + currentObject.images[currentIndex];
+      lightboxDesc.innerHTML = currentObject.imageDescription[currentIndex];
+    };
     // Init app
     changeElements.call(document.querySelector('#spring')); // Call with param
 })();
