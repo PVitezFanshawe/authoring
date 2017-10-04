@@ -1,4 +1,4 @@
-(() => { 
+(() => {
     const theImages = document.querySelectorAll('.image-holder'),
     theHeader = document.querySelector('.heading'),
     theSubhead = document.querySelector('.main-copy h2'),
@@ -10,7 +10,7 @@
         let objectIndex = dynamicContent[this.id];
 
         // Delete any lingering thumbnails
-        document.querySelectorAll('.thumb').forEach((el) => el.remove()); 
+        document.querySelectorAll('.thumb').forEach((el) => el.remove());
         objectIndex.images.forEach((el, index) => {
             let newSubImg = document.createElement('img');
 
@@ -24,7 +24,7 @@
 
         theSubhead.classList.remove(appliedClass);
         theHeader.classList.remove(appliedClass);
-        
+
         theSubhead.classList.add(this.id);
         theHeader.classList.add(this.id);
 
@@ -38,7 +38,18 @@
         // Loop through the photos and do some stuff
         el.addEventListener('click', changeElements, false);
     });
-    
-    // Init app 
+
+
+    function.forEach(function(element, index){
+
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "hidden";
+
+      let lightbox = document.querySelector('.lightbox');
+      lightbox.style.display = 'block';
+
+
+    });
+    // Init app
     changeElements.call(document.querySelector('#spring')); // Call with param
 })();
